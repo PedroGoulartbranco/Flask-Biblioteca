@@ -11,3 +11,4 @@ migrate = Migrate(app, db)
 
 
 from app.views import pagina_inicial
+from app.models import Contato

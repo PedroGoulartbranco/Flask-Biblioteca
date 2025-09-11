@@ -1,7 +1,7 @@
 from app import db
 
-class contato(db.Model):
-    id = db.Colunm()
-    nome = db.Colunm()
-    email = db.Colunm()
-    senha = db.Colunm()
+class Contato(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String, nullable=True)
+    email = db.Column(db.String, nullable=True)
+    #senha = db.Colunm()
