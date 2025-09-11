@@ -13,6 +13,14 @@
    <hr>
    <form method="post">
     {{form.csrf_token}}
+
+    {{form.nome.label()}}
+    {{form.nome()}}
+
+    {{form.email.label()}}
+    {{form.email()}}
+
+    {{form.btnSubmit()}}
   </form>
   
 </body>

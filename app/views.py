@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template, url_for, request
 from app.forms import ContatoForm
+from app.models import Contato, db
 @app.route('/')
 def pagina_inicial():
     nome = "Pedro"
@@ -12,9 +13,8 @@ def cadastro():
 
 @app.route('/cadastro/usuario', methods=['GET', 'POST'])
 def cadastro_usuario():
+    form = ContatoForm()
     context = {}
-    if request.method == 'POST':
-        email = request.form['email']
-        context.update({'email': email})
-        print(email)
-    return render_template('cadastro_pessoa.html', context=context)
+    if form.validate_on_submit():
+        form.save()
+    return render_template('cadastro_pessoa.html', context=context, form=form)
