@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, Email
-from app.models import Contato, db
+from app.models import Contato, db, Livro
 
 class ContatoForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -21,3 +21,6 @@ class LivroForm(FlaskForm):
     numero_paginas = IntegerField('Número Páginas', validators=[DataRequired()])
     editora = StringField('Editora', validators=[DataRequired()])
     btnSubmit = SubmitField('Enviar')
+
+    def save(self):
+        pass
